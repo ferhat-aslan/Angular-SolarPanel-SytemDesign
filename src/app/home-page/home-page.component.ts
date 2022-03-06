@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AnyCatcher } from 'rxjs/internal/AnyCatcher';
+import {AutoCompleteComponent } from '../auto-complete/auto-complete.component'
 
 @Component({
   selector: 'app-home-page',
@@ -17,13 +18,13 @@ export class HomePageComponent implements OnInit {
   width:any=0;
   angle:Number=0;
   roofType:any;
-  result:Number=0;
+  panelpiece:Number=0;
 form:any={};
   ngOnInit(): void {
   }
   Router(){
-    this.result=this.CalculatePanels();
-    this.router.navigate(['/panelresult'],{state:{data:this.result,data2:this.form}});
+    this.panelpiece=this.CalculatePanels();
+    this.router.navigate(['/panelresult'],{state:{data:this.panelpiece,data2:this.form}});
     console.log(this.height);
 
   }
@@ -34,7 +35,7 @@ console.log(formm);
 }
   CalculatePanels(){
     let area:any=this.height*this.width*0.85;
-    let panelPiece:any=Math.ceil(area/(1.5*1)) ;
-    return panelPiece;
+    let panelPieces:any=Math.ceil(area/(1.5*1)) ;
+    return panelPieces;
   }
 }
