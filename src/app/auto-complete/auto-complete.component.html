@@ -1,7 +1,4 @@
 
-      <input class="input"
-        type="text"
-        [(ngModel)]="autocompleteInput"
-        #addresstext style="padding: 12px 20px; border: 1px solid #ccc; width: 400px"
-        >
-    
+  <input class="input-group input-group-sm mb-3 form-control size" ngx-google-places-autocomplete (onAddressChange)="handleAddressChange($event)" />
+<p>address: {{userAddress}}</p>
+

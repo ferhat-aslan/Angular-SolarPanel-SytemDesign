@@ -1,37 +1,32 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-
+import { GooglePlaceDirective } from 'ngx-google-places-autocomplete';
 @Component({
   selector: 'app-auto-complete',
   templateUrl: './auto-complete.component.html',
   styleUrls: ['./auto-complete.component.css']
 })
-export class AutoCompleteComponent implements OnInit, AfterViewInit {
-  @Input() adressType: any;
-    @Output() setAddress: EventEmitter<any> = new EventEmitter();
-    @ViewChild('addresstext') addresstext: any;
-  autocompleteInput: any;
-  queryWait: any;
+export class AutoCompleteComponent implements OnInit {
+  @Output() myCor: EventEmitter<any>=new EventEmitter();
+
+  @ViewChild("placesRef")
+  placesRef!: GooglePlaceDirective;
+  userAddress: string = ''
+  userLatitude: string = ''
+  userLongitude: string = ''
+
+
   constructor() { }
-  ngAfterViewInit(): void {
-    this.getPlaceAutocomplete();
-  }
 
   ngOnInit(): void {
   }
-  private getPlaceAutocomplete() {
-    const autocomplete = new google.maps.places.Autocomplete(this.addresstext.nativeElement,
-        {
-            componentRestrictions: { country: 'TR' },
-            types: [this.adressType]  // 'establishment' / 'address' / 'geocode'
-        });
-    google.maps.event.addListener(autocomplete, 'place_changed', () => {
-        const place = autocomplete.getPlace();
-        this.invokeEvent(place);
-    });
-}
+  handleAddressChange(address: any) {
+    this.userAddress = address.formatted_address
+    this.userLatitude = address.geometry.location.lat()
+    this.userLongitude = address.geometry.location.lng()
+    this.myCor.emit({lat:address.geometry.location.lat(),long:address.geometry.location.lng()});
 
-invokeEvent(place: Object) {
-    this.setAddress.emit(place);
-}
+  }
+
+
 
 }

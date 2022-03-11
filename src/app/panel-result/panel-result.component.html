@@ -1,2 +1,50 @@
-<p>panel-result {{gelenveri}}</p>
-<p>{{form}}</p>
+<div class="toolbar" role="banner">
+  <div class="spacer"></div>
+  <h3>Design Solar System For Your Home</h3>
+    <div class="spacer"></div>
+</div>
+<div class="content " role="main">
+  <div class="card-container">
+    <div class="card"> Implemetion Area:<strong> {{gelenveri*3 | number: '1.1-3'}} m2</strong></div>
+
+  <div class="card">Number Of Panels:<strong> {{gelenveri}}</strong></div>
+
+  <div class="card"> Latitute: <strong> {{lat | number: '1.1-3'}}</strong></div>
+
+  <div class="card"> Longitude:<strong> {{long | number: '1.1-3'}}</strong></div>
+  <div class="card"> System Capacity:<strong> {{systemCap | number: '1.1-3'}} KW</strong></div>
+  <div class="card"> System Cost:<strong> {{systemCost | number: '1.1-3'}} $</strong></div>
+
+</div>
+  <div class="card-w card-small">
+<span>Price for Per Kwh: </span>
+    <input name="price" [(ngModel)]="price" type="text" class="form-control size" placeholder="$1" >
+    <span class="input-group-text" id="basic-addon2">$</span>
+    <button class="btn btn-dark mx-4" (click)="pricing()">Set</button>
+
+  </div>
+  <strong class="card" style="border: 1px solid green; font-weight: bold; color: green;">You will earn {{total | number: '1.0-0'}}$ per year.</strong>
+<a href="https://www.google.com/search?q=find+solar+panel+technician+in+usa&newwindow=1&ei=YykrYtuMKuGJxc8P2L2MQA&ved=0ahUKEwibyrXC8b32AhXhRPEDHdgeAwgQ4dUDCA4&uact=5&oq=find+solar+panel+technician+in+usa&gs_lcp=Cgdnd3Mtd2l6EAM6BwgAEEcQsANKBAhBGABKBAhGGABQ7wdY7A9g-xBoAXABeACAAbEBiAHPBJIBAzAuNJgBAKABAcgBB8ABAQ&sclient=gws-wiz"> <button class="btn btn-dark" >Find Me Technician</button></a>
+<div>
+
+  <div style="display: block;" *ngIf="loading" >
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+
+            type="bar"
+            width="655px"
+
+
+            >
+    </canvas>
+
+
+  </div>
+  <canvas #myChart style="width:100%;max-width:700px"></canvas>
+
+</div>
+
+</div>
