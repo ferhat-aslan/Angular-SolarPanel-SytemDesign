@@ -15,7 +15,7 @@
 
 ## Contents:
  - [Categories](#categories)
-      - [Video](#video)
+      - [Images](#images)
       - [About](#about-project)
       - [Used Packages And Modules](#used-packages-and-modules)
       - [Getting Started](#getting-started)
@@ -24,10 +24,12 @@
       - [Installation](#installation)
       - [Contact](#contact)
       
-## Video
+## Images
+
+![ss1](https://user-images.githubusercontent.com/83245111/159011704-da9cd9cf-063e-4dba-aea9-596e01927b42.PNG)
 
 
-
+![ss2](https://user-images.githubusercontent.com/83245111/159011744-f3a8d200-6dbf-467b-9e7d-6e28371bce77.PNG)
 
 ## About Project
 
