@@ -1,4 +1,4 @@
-<h1 align="center">Angular Solar Energy System Design App(Patika)</h1>
+<h1 align="center">Angular Solar Energy System Design App</h1>
 
 
 <h2 align="center"><a href="https://angular-solar-panel-sytem-design.vercel.app/">LIVE :tv:</a></h2>
